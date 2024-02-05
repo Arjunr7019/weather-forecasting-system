@@ -1,0 +1,94 @@
+.width-100 {
+    width: 100%;
+}
+
+.height-100vh {
+    height: 100vh;
+}
+
+.searchIcon {
+    cursor: pointer;
+}
+
+.common-bg-card {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.common-bg-card-noBoder {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.main {
+    width: 35%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.inputElements input {
+    width: 98%;
+    border-radius: 20px;
+    outline: 1px solid #ffffff4d;
+    border: 1px solid #ffffff4d;
+    padding: 4px 10px;
+    transition: .4s ease-in-out;
+}
+
+.inputElements input:focus {
+    outline: 1px solid #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.searchIcon {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.searchIconDiv{
+    height: 5rem;
+}
+
+#weatherIcon {
+    width: 224px;
+}
+
+.swal2-popup {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: black;
+}
+
+.swal2-styled {
+    padding: 6px 20px !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: black !important;
+}
+
+@media only screen and (max-width: 992px) {
+    .main{
+        width: 80%;
+    }
+  }

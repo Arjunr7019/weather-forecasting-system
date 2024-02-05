@@ -1,0 +1,64 @@
+.width-60 {
+    width: 60%;
+}
+.width-100 {
+    width: 100%;
+}
+.formControl {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    outline: 1px solid #ffffff4d;
+    border: 1px solid #ffffff4d;
+    width: 100%;
+    /* padding: 6px 10px; */
+    transition: .4s ease-in-out;
+}
+
+.formControl:focus {
+    outline: 1px solid #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.emailNotValid{
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    outline: 1px solid #ffffff4d;
+    border: 1px solid #ffffff4d;
+    width: 100%;
+    outline: 1px solid #ff00004d !important;
+    border: 1px solid #ff00004d !important;
+}
+.emailNotValid:focus{
+    outline: 1px solid #ff0a0a !important;
+    border: 1px solid #ff0a0a !important;
+}
+
+.formLabel {
+    position: absolute;
+    top: -72%;
+    transition: .4s ease-in-out;
+}
+
+.labelAction {
+    position: relative;
+    margin-top: 2.4rem;
+}
+
+.labelAction span{
+    color: #f1f1f1;
+    position: absolute;
+    right: 14px;
+    cursor: pointer;
+}
+
+.labelAction input:focus+label {
+    position: absolute;
+    top: -33%;
+    left: 5%;
+    background: rgba(255, 255, 255, 0.73);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(17px);
+    -webkit-backdrop-filter: blur(17px);
+    border-radius: 12px;
+    padding: 0 8px;
+}
