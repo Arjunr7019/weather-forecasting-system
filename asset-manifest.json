@@ -1,9 +1,8 @@
 {
   "files": {
-    "main.css": "/weather-forecasting-system/static/css/main.db21e4d9.css",
-    "main.js": "/weather-forecasting-system/static/js/main.96f58a53.js",
+    "main.css": "/weather-forecasting-system/static/css/main.3faa4527.css",
+    "main.js": "/weather-forecasting-system/static/js/main.8b2e0d3b.js",
     "static/js/592.e7bedcf6.chunk.js": "/weather-forecasting-system/static/js/592.e7bedcf6.chunk.js",
-    "static/media/bg.png": "/weather-forecasting-system/static/media/bg.0f2a933aa40244f26551.png",
     "static/media/09d-09n-shower-rain.png": "/weather-forecasting-system/static/media/09d-09n-shower-rain.257bbf11259346973e40.png",
     "static/media/11d-11n-thunderstorm.png": "/weather-forecasting-system/static/media/11d-11n-thunderstorm.e8847118e96c24763ea3.png",
     "static/media/10n-rain.png": "/weather-forecasting-system/static/media/10n-rain.4ee0e9fc87d08277eb02.png",
@@ -11,12 +10,12 @@
     "static/media/04d-04n-broken-clouds.png": "/weather-forecasting-system/static/media/04d-04n-broken-clouds.e9be18ed49d361006db2.png",
     "static/media/13d-13n-snow.png": "/weather-forecasting-system/static/media/13d-13n-snow.82a8dd9d80ae253c72c0.png",
     "index.html": "/weather-forecasting-system/index.html",
-    "main.db21e4d9.css.map": "/weather-forecasting-system/static/css/main.db21e4d9.css.map",
-    "main.96f58a53.js.map": "/weather-forecasting-system/static/js/main.96f58a53.js.map",
+    "main.3faa4527.css.map": "/weather-forecasting-system/static/css/main.3faa4527.css.map",
+    "main.8b2e0d3b.js.map": "/weather-forecasting-system/static/js/main.8b2e0d3b.js.map",
     "592.e7bedcf6.chunk.js.map": "/weather-forecasting-system/static/js/592.e7bedcf6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.db21e4d9.css",
-    "static/js/main.96f58a53.js"
+    "static/css/main.3faa4527.css",
+    "static/js/main.8b2e0d3b.js"
   ]
 }
