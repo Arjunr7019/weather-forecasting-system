@@ -1,0 +1,68 @@
+.width-60 {
+    width: 60%;
+}
+.width-100 {
+    width: 100%;
+}
+.formControl {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    outline: 1px solid #ffffff4d;
+    border: 1px solid #ffffff4d;
+    width: 100%;
+    /* padding: 6px 10px; */
+    transition: .4s ease-in-out;
+}
+
+.formControl:focus {
+    outline: 1px solid #3690FE;
+    border: 1px solid #3690FE;
+}
+
+.labelActionSearchBar {
+    position: relative;
+}
+
+.labelActionSearchBar span{
+    color: #f1f1f1;
+    position: absolute;
+    right: 14px;
+    cursor: pointer;
+}
+.formLabelSearchBar {
+    position: absolute;
+    left: 3%;
+    top: 20%;
+    transition: .4s ease-in-out;
+}
+.formLabelSearchBarOnContent {
+    position: absolute;
+    top: -33%;
+    left: 4%;
+    background: rgba(255, 255, 255, 0.73);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(17px);
+    -webkit-backdrop-filter: blur(17px);
+    border-radius: 12px;
+    padding: 0 8px;
+    color: black;
+    transition: .4s ease-in-out;
+}
+
+.labelActionSearchBar input:focus+label {
+    position: absolute;
+    top: -33%;
+    left: 4%;
+    background: rgba(54, 144, 254, 0.73);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(17px);
+    -webkit-backdrop-filter: blur(17px);
+    border-radius: 12px;
+    padding: 0 8px;
+    color: white;
+}
+@media only screen and (max-width: 992px) {
+    .width-60{
+        width: 100%;
+    }
+  }

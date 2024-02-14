@@ -1,21 +1,40 @@
-.width-36{
-    width: 36%;
+.width-36 {
+  width: 36%;
 }
-.ForgetPassword-SignUp a{
-    text-decoration: none;
-    color: #E8BCB9;
+
+.ForgetPassword-SignUp a {
+  text-decoration: none;
+  transition: .4s ease-in-out;
 }
+
+.ForgetPassword-SignUp a:hover {
+  text-decoration: none;
+}
+
 .common-bg-card {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.common-button-bg-card {
+  background: rgba(54, 144, 254, 0.35);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.bg-blur-for-loginCard {
+  backdrop-filter: blur(10px);
 }
 
 @media only screen and (max-width: 992px) {
-    .width-36{
-        width: 80%;
-    }
+  .width-36 {
+    width: 80%;
   }
+}

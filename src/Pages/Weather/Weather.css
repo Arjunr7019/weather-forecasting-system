@@ -1,17 +1,62 @@
 .width-100 {
     width: 100%;
 }
-
+.width-74 {
+    width: 74%;
+}
+.height-30vh{
+    height: 30vh;
+}
+.width-24{
+    width: 24%;
+    margin-left: 1rem;
+}
+.width-60{
+    width: 60%;
+}
 .height-100vh {
     height: 100vh;
+}
+.height-38vh{
+    height: 38vh;
+}
+.width-fit-content{
+    width: fit-content;
+}
+.heightSm-fitContent{
+    height: fit-content;
+}
+.default-padingX{
+    padding-left: 102px;
+    padding-right: 102px;
 }
 
 .searchIcon {
     cursor: pointer;
 }
 
+.mainWeatherValues p{
+    color: white;
+}
+.mainWeatherValues svg{
+    color: white;
+}
+.Logo{
+    width: fit-content;
+}
+.Logo img{
+    width: 56px;
+}
 .common-bg-card {
     background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.common-theme-bg-card {
+    background: rgba(54, 144, 254, 0.2);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
@@ -27,18 +72,13 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.main {
+/* .main {
     width: 35%;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
+    
+} */
 
 .inputElements input {
-    width: 98%;
+    width: 100%;
     border-radius: 20px;
     outline: 1px solid #ffffff4d;
     border: 1px solid #ffffff4d;
@@ -46,9 +86,23 @@
     transition: .4s ease-in-out;
 }
 
+.loginButton{
+    text-decoration: none;
+    color: white;
+}
+.common-button-bg-card {
+    background: rgba(54, 144, 254, 0.35);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+  }
+
 .inputElements input:focus {
-    outline: 1px solid #ffffff;
-    border: 1px solid #ffffff;
+    outline: 1px solid #3690FE;
+    border: 1px solid #3690FE;
 }
 
 .searchIcon {
@@ -57,9 +111,6 @@
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-}
-.searchIconDiv{
-    height: 5rem;
 }
 
 #weatherIcon {
@@ -86,9 +137,34 @@
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
     color: black !important;
 }
+.currentTime{
+    height: 30vh;
+}
 
 @media only screen and (max-width: 992px) {
-    .main{
+    /* .main{
         width: 80%;
+    } */
+    .smDispaly-none{
+        display: none;
+    }
+    .width-74 {
+        width: 100%;
+    }
+    .default-padingX{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .height-30vh{
+        height: 12vh;
+    }
+    .width-60{
+        width: 100%;
+    }
+    .Logo{
+        width: 100%;
+    }
+    .heightSm-fitContent{
+        height: fit-content;
     }
   }

@@ -7,7 +7,7 @@ import NoPage from './Pages/NoPage/NoPage';
 
 function App() {
   return (
-    <div className="App height-100vh d-flex justify-content-center align-items-center">
+    <div className="App">
       <BrowserRouter basename="/weather-forecasting-system">
        <Routes>
         <Route index element={<Login/>}/>
