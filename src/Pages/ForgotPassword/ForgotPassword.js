@@ -64,7 +64,7 @@ export default function ForgotPassword() {
         if (email === "") {
             Swal.fire("Enter proper email!");
         } else {
-            const response = await fetch('/api/generateOTP', {
+            const response = await fetch('https://weather-forecast-server-zuts.onrender.com/api/generateOTP', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ export default function ForgotPassword() {
         if (email === "") {
             Swal.fire("Enter proper email!");
         } else {
-            const response = await fetch('/api/verifyOTP', {
+            const response = await fetch('https://weather-forecast-server-zuts.onrender.com/api/verifyOTP', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -122,7 +122,7 @@ export default function ForgotPassword() {
         if (email === "" && password === "") {
             Swal.fire("Enter proper email and password!");
         } else {
-            const response = await fetch('/api/forgotPassword', {
+            const response = await fetch('https://weather-forecast-server-zuts.onrender.com/api/forgotPassword', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
