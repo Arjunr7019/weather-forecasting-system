@@ -30,7 +30,11 @@
     padding-left: 102px;
     padding-right: 102px;
 }
-
+/* .header{
+    position: sticky;
+    top: 5%;
+    z-index: 1;
+} */
 .searchIcon {
     cursor: pointer;
 }
@@ -129,7 +133,7 @@
 
 .swal2-styled {
     padding: 6px 20px !important;
-    background: rgba(255, 255, 255, 0.2) !important;
+    background: rgba(54, 144, 254, 0.35) !important;
     border-radius: 16px !important;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
     backdrop-filter: blur(5px) !important;
@@ -140,16 +144,24 @@
 .currentTime{
     height: 30vh;
 }
+.map:focus{
+    outline: none !important;
+    border: 0 !important;
+}
 
 @media only screen and (max-width: 992px) {
     /* .main{
         width: 80%;
     } */
-    .smDispaly-none{
+    /* .smDispaly-none{
         display: none;
-    }
+    } */
     .width-74 {
         width: 100%;
+    }
+    .width-24{
+        width: 100%;
+        margin-left: 0;
     }
     .default-padingX{
         padding-left: 20px;

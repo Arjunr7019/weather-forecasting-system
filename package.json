@@ -2,6 +2,7 @@
   "homepage": "https://Arjunr7019.github.io/weather-forecasting-system",
   "name": "weather-forecasting-system",
   "version": "0.1.0",
+  "proxy": "https://weather-forecast-server-zuts.onrender.com",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -10,6 +11,8 @@
     "ldrs": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-headroom": "^3.2.1",
+    "react-iframe": "^1.8.5",
     "react-router-dom": "^6.22.0",
     "react-scripts": "5.0.1",
     "sweetalert2": "^11.10.5",

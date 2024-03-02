@@ -1,6 +1,9 @@
 import React, { useRef, useState } from 'react';
 import './Weather.css';
 import { Icon } from '@iconify/react';
+import { quantum } from 'ldrs';
+import Swal from 'sweetalert2';
+// import Headroom from 'react-headroom';
 import one_d from '../../WeatherIcons/01d-clear-sky.png';
 import one_n from '../../WeatherIcons/01n-clear-sky.png';
 import two_d from '../../WeatherIcons/02d-few-clouds.png';
@@ -13,10 +16,9 @@ import ten_n from '../../WeatherIcons/10n-rain.png';
 import eleven_d_n from '../../WeatherIcons/11d-11n-thunderstorm.png';
 import thirteen_d_n from '../../WeatherIcons/13d-13n-snow.png';
 import fifty_d_n from '../../WeatherIcons/50d-50n-mist.png';
-import { quantum } from 'ldrs';
-import Swal from 'sweetalert2';
 import SearchBarInput from '../../Components/SearchBar/SearchBarInput';
-import WeatherForecastLogo from '../../WeatherIcons/WethearForecastLogo.png'
+import WeatherForecastLogo from '../../WeatherIcons/WethearForecastLogo.png';
+import Iframe from 'react-iframe';
 
 quantum.register()
 
@@ -35,25 +37,26 @@ export default function Weather() {
     const [time, setTime] = useState('');
     const [heighSm, setHeighSm] = useState(false);
     const [sunriseAndSunset, setSunriseAndSunset] = useState(['', '']);
-    
-    const cityOneName = useRef('');
-    const cityOneDescription = useRef('');
-    const cityOneTem = useRef('');
-    const cityTwoName = useRef('');
-    const cityTwoDescription = useRef('');
-    const cityTwoTem = useRef('');
-    const cityThreeName = useRef('');
-    const cityThreeDescription = useRef('');
-    const cityThreeTem = useRef('');
+
+    const googleMapUrl = useRef('');
+    // const cityOneName = useRef('');
+    // const cityOneDescription = useRef('');
+    // const cityOneTem = useRef('');
+    // const cityTwoName = useRef('');
+    // const cityTwoDescription = useRef('');
+    // const cityTwoTem = useRef('');
+    // const cityThreeName = useRef('');
+    // const cityThreeDescription = useRef('');
+    // const cityThreeTem = useRef('');
 
 
     const handleKeyPress = (event) => {
         if (event.key === 'Enter') {
             search();
             setHeighSm(false);
-            CityOne("Bengaluru");
-            CityOne("Mumbai");
-            CityOne("Hyderabad");
+            // CityOne("Bengaluru");
+            // CityOne("Mumbai");
+            // CityOne("Hyderabad");
         }
     }
 
@@ -65,11 +68,13 @@ export default function Weather() {
     }
 
     const search = async () => {
-        // {txtValue===''?alert('Enter City Name'):consoleFunction()}
         setLoading(true);
         setVisible(false);
+
+        let mapUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyCq6H-8BHpjg06AvrNQvAOaUXJEia8b0EA&q=${txtValue}`;
+        googleMapUrl.current = mapUrl;
+        
         if (txtValue === '') {
-            // alert('Enter City Name');
             Swal.fire("Enter City Name!");
             setLoading(false);
         } else {
@@ -77,7 +82,6 @@ export default function Weather() {
             let response = await fetch(url);
             let data = await response.json();
             if (!response.ok) {
-                // alert('Enter Proper City');
                 Swal.fire("Enter Proper City!");
                 setLoading(false);
                 setHeighSm(false);
@@ -128,29 +132,33 @@ export default function Weather() {
             }
         }
     }
+    // const googleMapSearch = () => {
+    //     let mapUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyCq6H-8BHpjg06AvrNQvAOaUXJEia8b0EA&q=hassan`;
+    //     setMapLocation(mapUrl);
+    // }
 
-    const CityOne = async (cityName) => {
-        let url1 = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
-        let response1 = await fetch(url1);
-        let data1 = await response1.json();
-        const { name } = data1;
-        const { country } = data1.sys;
-        const { description } = data1.weather[0];
-        const { temp } = data1.main;
-        if(cityName==='Bengaluru'){
-            cityOneName.current = name+","+country;
-            cityOneDescription.current = description;
-            cityOneTem.current = temp+"°";
-        }else if(cityName==='Mumbai'){
-            cityTwoName.current = name+","+country;
-            cityTwoDescription.current = description;
-            cityTwoTem.current = temp+"°";
-        }else if(cityName==='Hyderabad'){
-            cityThreeName.current = name+","+country;
-            cityThreeDescription.current = description;
-            cityThreeTem.current = temp+"°";
-        }
-    }
+    // const CityOne = async (cityName) => {
+    //     let url1 = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
+    //     let response1 = await fetch(url1);
+    //     let data1 = await response1.json();
+    //     const { name } = data1;
+    //     const { country } = data1.sys;
+    //     const { description } = data1.weather[0];
+    //     const { temp } = data1.main;
+    //     if (cityName === 'Bengaluru') {
+    //         cityOneName.current = name + "," + country;
+    //         cityOneDescription.current = description;
+    //         cityOneTem.current = temp + "°";
+    //     } else if (cityName === 'Mumbai') {
+    //         cityTwoName.current = name + "," + country;
+    //         cityTwoDescription.current = description;
+    //         cityTwoTem.current = temp + "°";
+    //     } else if (cityName === 'Hyderabad') {
+    //         cityThreeName.current = name + "," + country;
+    //         cityThreeDescription.current = description;
+    //         cityThreeTem.current = temp + "°";
+    //     }
+    // }
 
     setInterval(() => {
         let currentTime = new Date();
@@ -164,7 +172,10 @@ export default function Weather() {
     return (
         <>
             <div className={heighSm ? 'default-padingX heightSm-fitContent width-100 py-3 py-lg-5' : 'default-padingX height-100vh width-100 py-3 py-lg-5'}>
-                <div className='width-100 d-flex flex-column flex-lg-row justify-content-between align-items-center mt-3 mt-lg-0 mb-3 mb-lg-5'>
+                {/* <Headroom>
+                    
+                </Headroom> */}
+                <div className='header width-100 d-flex flex-column flex-lg-row justify-content-between align-items-center mt-3 mt-lg-0 mb-3 mb-lg-5'>
                     <div className='Logo d-flex justify-content-start align-items-center'>
                         <img src={WeatherForecastLogo} alt="Logo" />
                     </div>
@@ -195,31 +206,37 @@ export default function Weather() {
                 {loading ? <div className='d-flex justify-content-center align-items-center'>
                     <l-quantum size="45" speed="1.75" color="black"></l-quantum>
                 </div> : <></>}
-                {visible ? <>
-                    {/* <div className='width-100 d-flex flex-row justify-content-center align-items-center mb-3 p-1'>
-                        <Icon icon="ion:location-outline" />
-                        <p id='cityCountry' className='m-0 px-1'>{location}</p>
-                    </div> */}
-                    <div className='height-38vh d-flex flex-row justify-content-center align-items-center my-3'>
-                        <div className='mainWeatherValues width-74 height-38vh common-theme-bg-card p-3 d-flex flex-column justify-content-center align-items-center mb-3'>
-                            <div className='width-100 d-flex flex-row justify-content-center align-items-center p-1'>
-                                <Icon icon="ion:location-outline" />
-                                <p id='cityCountry' className='m-0 px-1'>{location}</p>
-                            </div>
-                            <div className='width-100 d-flex flex-row flex-lg-row flex-wrap-reverse flex-lg-nowrap justify-content-around align-items-center'>
-                                <div className='width-100 d-flex flex-row justify-content-center align-items-center'>
+                {visible ?
+                    <>
+                        <div className='d-flex flex-column flex-lg-row justify-content-center align-items-center my-3'>
+                            <div className='mainWeatherValues width-74 height-38vh common-theme-bg-card p-3 d-flex flex-column justify-content-center align-items-center mb-3 mb-lg-0'>
+                                <div className='width-100 d-flex flex-row justify-content-center align-items-center p-1'>
+                                    <Icon icon="ion:location-outline" />
+                                    <p id='cityCountry' className='m-0 px-1'>{location}</p>
+                                </div>
+                                <div className='width-100 d-flex flex-row flex-lg-row flex-wrap-reverse flex-lg-nowrap justify-content-around align-items-center'>
+                                    <div className='width-100 d-flex flex-row justify-content-center align-items-center'>
+                                        <div className='width-100 d-flex justify-content-center align-items-center flex-column'>
+                                            <p id='weatherTemperature' className='m-0 fs-1 fw-bolder'>{temperature}</p>
+                                            <p id='weatherDescription' className='m-0'>{description}</p>
+                                        </div>
+                                    </div>
                                     <div className='width-100 d-flex justify-content-center align-items-center flex-column'>
-                                        {/* <p className='m-0'>Temperature</p> */}
-                                        <p id='weatherTemperature' className='m-0 fs-1 fw-bolder'>{temperature}</p>
-                                        <p id='weatherDescription' className='m-0'>{description}</p>
+                                        <img id='weatherIcon' className='p-3' src={weatherIcons} alt="img" />
                                     </div>
                                 </div>
-                                <div className='width-100 d-flex justify-content-center align-items-center flex-column'>
-                                    <img id='weatherIcon' className='p-3' src={weatherIcons} alt="img" />
-                                </div>
                             </div>
-                        </div>
-                        <div className='smDispaly-none width-24'>
+
+                            <div className='smDispaly-none width-24'>
+                                <Iframe
+                                    id='mapBox'
+                                    className='map rounded-4'
+                                    src={googleMapUrl.current}
+                                    width="100%" height="264.18" >
+                                </Iframe>
+                            </div>
+
+                            {/* <div className='smDispaly-none width-24'>
                             <h5>Other City's</h5>
                             <div className='width-100 d-flex justify-content-center align-items-center flex-column'>
                                 <div className='width-100 common-bg-card d-flex justify-content-around align-items-center flex-row py-2 mb-3'>
@@ -244,51 +261,51 @@ export default function Weather() {
                                     <h5 id='cityTempThree' className='m-0 text-center'>{cityThreeTem.current}</h5>
                                 </div>
                             </div>
+                        </div> */}
                         </div>
-                    </div>
 
 
-                    <div className='width-100 d-flex flex-column justify-content-around align-items-center'>
-                        <h5 className='width-100'>Today's Highlights</h5>
-                        <div className='width-100 d-flex flex-column flex-lg-row justify-content-between align-items-center'>
-                            <div className='humidity width-100 mx-2 height-30vh common-bg-card d-flex justify-content-evenly justify-content-lg-center align-items-center flex-row flex-lg-column py-4 px-3 mb-2 mb-lg-0'>
-                                <div className='d-flex flex-row justify-content-between align-items-center'>
-                                    <Icon className='fs-1 mx-3' icon="solar:waterdrops-outline" />
-                                    <p className='m-0'>Humidity</p>
-                                </div>
-                                <p id='weatherHumidity' className='m-0'>{humidity}</p>
-                            </div>
-                            <div className='wind width-100 mx-2 height-30vh common-bg-card d-flex justify-content-evenly justify-content-lg-center align-items-center flex-row flex-lg-column py-4 px-3 mb-2 mb-lg-0'>
-                                <div className='d-flex flex-row justify-content-between align-items-center'>
-                                    <Icon className='fs-1 mx-3' icon="ph:wind" />
-                                    <p className='m-0'>Wind</p>
-                                </div>
-                                <p id='weatherWind' className='m-0'>{wind}</p>
-                            </div>
-                            <div className='pressure width-100 mx-2 height-30vh common-bg-card d-flex justify-content-evenly justify-content-lg-center align-items-center flex-row flex-lg-column py-4 px-3 mb-2 mb-lg-0'>
-                                <div className='d-flex flex-row justify-content-between align-items-center'>
-                                    <Icon className='fs-1 mx-3' icon="lets-icons:pressure-light" />
-                                    <p className='m-0'>Pressure</p>
-                                </div>
-                                <p id='weatherPressure' className='m-0'>{pressure}</p>
-                            </div>
-                            <div className='common-theme-bg-card width-100 mx-2 currentTime d-flex justify-content-center align-items-center flex-column py-4 px-3'>
-                                <p className='m-0 fs-5 text-white'>Current Time</p>
-                                <p className='fs-5 text-white'>{time}</p>
-                                <div className='width-100 d-flex flex-row justify-content-around align-items-center'>
-                                    <div className='d-flex flex-column justify-content-center align-items-center mx-2'>
-                                        <p className='m-0 text-white'>Sunrise</p>
-                                        <p className='m-0 text-white'>{sunriseAndSunset[0]}</p>
+                        <div className='width-100 d-flex flex-column justify-content-around align-items-center'>
+                            <h5 className='width-100'>Today's Highlights</h5>
+                            <div className='width-100 d-flex flex-column flex-lg-row justify-content-between align-items-center'>
+                                <div className='humidity width-100 mx-2 height-30vh common-bg-card d-flex justify-content-evenly justify-content-lg-center align-items-center flex-row flex-lg-column py-4 px-3 mb-2 mb-lg-0'>
+                                    <div className='d-flex flex-row justify-content-between align-items-center'>
+                                        <Icon className='fs-1 mx-3' icon="solar:waterdrops-outline" />
+                                        <p className='m-0'>Humidity</p>
                                     </div>
-                                    <div className='d-flex flex-column justify-content-center align-items-center mx-2'>
-                                        <p className='m-0 text-white'>Sunset</p>
-                                        <p className='m-0 text-white'>{sunriseAndSunset[1]}</p>
+                                    <p id='weatherHumidity' className='m-0'>{humidity}</p>
+                                </div>
+                                <div className='wind width-100 mx-2 height-30vh common-bg-card d-flex justify-content-evenly justify-content-lg-center align-items-center flex-row flex-lg-column py-4 px-3 mb-2 mb-lg-0'>
+                                    <div className='d-flex flex-row justify-content-between align-items-center'>
+                                        <Icon className='fs-1 mx-3' icon="ph:wind" />
+                                        <p className='m-0'>Wind</p>
+                                    </div>
+                                    <p id='weatherWind' className='m-0'>{wind}</p>
+                                </div>
+                                <div className='pressure width-100 mx-2 height-30vh common-bg-card d-flex justify-content-evenly justify-content-lg-center align-items-center flex-row flex-lg-column py-4 px-3 mb-2 mb-lg-0'>
+                                    <div className='d-flex flex-row justify-content-between align-items-center'>
+                                        <Icon className='fs-1 mx-3' icon="lets-icons:pressure-light" />
+                                        <p className='m-0'>Pressure</p>
+                                    </div>
+                                    <p id='weatherPressure' className='m-0'>{pressure}</p>
+                                </div>
+                                <div className='common-theme-bg-card width-100 mx-2 currentTime d-flex justify-content-center align-items-center flex-column py-4 px-3'>
+                                    <p className='m-0 fs-5 text-white'>Current Time</p>
+                                    <p className='fs-5 text-white'>{time}</p>
+                                    <div className='width-100 d-flex flex-row justify-content-around align-items-center'>
+                                        <div className='d-flex flex-column justify-content-center align-items-center mx-2'>
+                                            <p className='m-0 text-white'>Sunrise</p>
+                                            <p className='m-0 text-white'>{sunriseAndSunset[0]}</p>
+                                        </div>
+                                        <div className='d-flex flex-column justify-content-center align-items-center mx-2'>
+                                            <p className='m-0 text-white'>Sunset</p>
+                                            <p className='m-0 text-white'>{sunriseAndSunset[1]}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </> : <></>}
+                    </> : <></>}
             </div>
         </>
     )

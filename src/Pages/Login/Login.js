@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './Login.css';
 import Input from '../../Components/Input/Input';
 import { useNavigate } from "react-router-dom";
-import { accounts } from '../../Storage/Storage';
 import Swal from 'sweetalert2';
 
 export default function Login() {
@@ -19,10 +18,6 @@ export default function Login() {
     const [lowerCase, setLowerrCase] = useState(false);
     const [passwordOnChange, setPasswordOnChange] = useState(false);
 
-    // const [signNameNull, setSignNameNull] = useState(false);
-    // const [signEmailNull, setSignEmailNull] = useState(false);
-    // const [signPaswordNull, setSignPasswordNull] = useState(false);
-    const [emailPasswordIsValid, setEmailPasswordIsValid] = useState(true);
 
     const navigate = useNavigate();
 
@@ -35,47 +30,68 @@ export default function Login() {
 
     const forgotPassword = (e) => {
         e.preventDefault();
+        navigate("/forgotPassword");
     }
 
     const onChangeNameValue = (e) => {
         setNameValue(e.target.value);
     }
 
-    const loginButton = () => {
-        // setSignNameNull(false);
-        // setSignEmailNull(false);
-        // setSignPasswordNull(false);
-        const user = accounts.find(account => account.email === emailValue);
+    const loginButton = async () => {
+        let email = emailValue;
+        let password = passwordValue;
+        const response = await fetch('/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email,
+                password
+            })
+        });
 
-        if (user && user.password === passwordValue) {
+        if (response.status === 200) {
+            // The user is authenticated.
             navigate("/home");
+            console.log(response.json());
+            
         } else {
-            setEmailPasswordIsValid(false);
+            // The user is not authenticated.
+            console.log(response.json())
         }
+       
     }
-    const signUpButton = () => {
+    const signUpButton = async () => {
         let name = nameValue;
         let email = emailValue;
         let password = passwordValue;
 
-        // name===""?setSignNameNull(true):setSignNameNull(false);
-        // email===""?setSignEmailNull(true):setSignEmailNull(false);
-        // password===""?setSignPasswordNull(true):setSignPasswordNull(false);
-        if (email !== "") {
-            if (isEmailRegistered(email)) {
-                Swal.fire('Email is already registered. Please use a different email.');
-                return;
-            }
-            const newAccount = { name, email, password };
-            accounts.push(newAccount);
-            console.log(newAccount)
+        const response = await fetch('/api/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name,
+                email,
+                password
+            })
+        });
+
+        if (response.status === 200) {
+            // The user is authenticated.
+            navigate("/home");
+            console.log(response.json())
+        } else {
+            // The user is not authenticated.
         }
 
     }
 
-    const isEmailRegistered = (email) => {
-        return accounts.some(account => account.email === email);
-    }
+    // const isEmailRegistered = (email) => {
+    //     return accounts.some(account => account.email === email);
+    // }
 
     const createAccount = (e) => {
         e.preventDefault();
@@ -88,7 +104,6 @@ export default function Login() {
         setLowerrCase(false);
         setUpperCase(false);
         setPasswordOnChange(false);
-        setEmailPasswordIsValid(true);
     }
 
     const passwordValidation = (e) => {
@@ -142,10 +157,10 @@ export default function Login() {
                         <p className={specialCharacter ? 'm-0 text-danger' : 'm-0 text-success'}>At least one special character</p>
                     </div> : <></>}
                 </div> : <></>}
-                {emailPasswordIsValid ? <></> : <p className='m-0 text-danger'>Email and Password Incorrect</p>}
+                {/* {emailPasswordIsValid ? <></> : <p className='m-0 text-danger'>Email and Password Incorrect</p>} */}
                 <button onClick={login ? signUpButton : loginButton} className='common-button-bg-card text-white width-100 px-3 py-2 mt-4'>{login ? 'Sign Up' : 'Login'}</button>
                 {login ? <></> : <div className='ForgetPassword-SignUp d-flex flex-row justify-content-center align-items-center mt-3'>
-                    <p className='m-0'>Forget Password?</p>
+                    <p className='m-0'>Forgot Password?</p>
                     <a className='p-0 mx-1' href='/' onClick={forgotPassword}>Reset</a>
                 </div>}
                 <div className={login ? 'ForgetPassword-SignUp d-flex flex-row justify-content-center align-items-center mt-3' : 'ForgetPassword-SignUp d-flex flex-row justify-content-center align-items-center'}>
