@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Login.css';
 import Input from '../../Components/Input/Input';
 import { useNavigate } from "react-router-dom";
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 
 export default function Login() {
 
@@ -40,7 +40,7 @@ export default function Login() {
     const loginButton = async () => {
         let email = emailValue;
         let password = passwordValue;
-        const response = await fetch('https://weather-forecast-server-zuts.onrender.com/api/login', {
+        const response = await fetch('/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ export default function Login() {
         let email = emailValue;
         let password = passwordValue;
 
-        const response = await fetch('https://weather-forecast-server-zuts.onrender.com/api/register', {
+        const response = await fetch('/api/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
