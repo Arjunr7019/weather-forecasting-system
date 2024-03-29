@@ -17,6 +17,7 @@ export default function Login() {
     const [upperCase, setUpperCase] = useState(false);
     const [lowerCase, setLowerrCase] = useState(false);
     const [passwordOnChange, setPasswordOnChange] = useState(false);
+    const [loginValid, setLoginValid] = useState(true);
 
 
     const navigate = useNavigate();
@@ -55,10 +56,12 @@ export default function Login() {
             // The user is authenticated.
             navigate("/home");
             console.log(response.json());
+            setLoginValid(true);
             
         } else {
             // The user is not authenticated.
             console.log(response.json())
+            setLoginValid(false);
         }
        
     }
@@ -66,6 +69,7 @@ export default function Login() {
         let name = nameValue;
         let email = emailValue;
         let password = passwordValue;
+        let otpToken = 0;
 
         const response = await fetch('https://weather-forecast-server-zuts.onrender.com/api/register', {
             method: 'POST',
@@ -75,11 +79,12 @@ export default function Login() {
             body: JSON.stringify({
                 name,
                 email,
-                password
+                password,
+                otpToken
             })
         });
 
-        if (response.status === 200) {
+        if (response.status === 201) {
             // The user is authenticated.
             navigate("/home");
             console.log(response.json())
@@ -126,6 +131,9 @@ export default function Login() {
         <div className='height-100vh width-100 d-flex justify-content-center align-items-center'>
             <div className='common-bg-card p-3 p-lg-5 width-36'>
                 <h1 className='text-center'>{login ? 'Sign Up' : 'Login'}</h1>
+                {loginValid ? <></>:<div className='width-100 common-bg-card-danger p-4'>
+                    <p className='m-0 text-center text-light'>invalid email and password</p>
+                </div>}
                 {login ? <Input type='name'
                     onChange={onChangeNameValue}
                     value={nameValue}

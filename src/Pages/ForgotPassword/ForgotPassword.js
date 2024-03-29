@@ -129,12 +129,12 @@ export default function ForgotPassword() {
                 },
                 body: JSON.stringify({
                     email,
-                    otp,
+                    otpToken,
                     password
                 })
             });
 
-            if (response.status === 201) {
+            if (response.status === 200) {
                 // The user is authenticated.
                 console.log(response.json());
                 setEmailValue('');
