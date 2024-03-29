@@ -116,7 +116,7 @@ export default function ForgotPassword() {
 
     const changePassword = async ()=>{
         let email = emailValue;
-        let otp = OTPValue;
+        let otpToken = OTPValue;
         let password = passwordValue;
 
         if (email === "" && password === "") {
