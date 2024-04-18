@@ -1,0 +1,12 @@
+.width-95 {
+    width: 95%;
+}
+.weatherList {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+}
+.items{
+    width: 184px;
+    text-align: center;
+}

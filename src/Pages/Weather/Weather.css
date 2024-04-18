@@ -1,6 +1,12 @@
 .width-100 {
     width: 100%;
 }
+.width-5{
+    width: 5%;
+}
+.width-95{
+    width: 95%;
+}
 .width-74 {
     width: 74%;
 }
@@ -35,6 +41,15 @@
     top: 5%;
     z-index: 1;
 } */
+.cursorPointer{
+    cursor: pointer;
+}
+.colorActive{
+    color: #86bdfe;
+}
+.colorInActive{
+    color: #8a8a8a;
+}
 .searchIcon {
     cursor: pointer;
 }
