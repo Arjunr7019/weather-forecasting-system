@@ -1,21 +1,24 @@
 {
   "files": {
-    "main.css": "/weather-forecasting-system/static/css/main.6c5d918d.css",
-    "main.js": "/weather-forecasting-system/static/js/main.b2b62228.js",
+    "main.css": "/weather-forecasting-system/static/css/main.832d396f.css",
+    "main.js": "/weather-forecasting-system/static/js/main.59e7d2c5.js",
     "static/js/592.e7bedcf6.chunk.js": "/weather-forecasting-system/static/js/592.e7bedcf6.chunk.js",
+    "static/media/Pressure.png": "/weather-forecasting-system/static/media/Pressure.0e8dbedb16ce292880b3.png",
+    "static/media/wind.png": "/weather-forecasting-system/static/media/wind.eb5c1332a6b505e07a07.png",
     "static/media/09d-09n-shower-rain.png": "/weather-forecasting-system/static/media/09d-09n-shower-rain.257bbf11259346973e40.png",
     "static/media/11d-11n-thunderstorm.png": "/weather-forecasting-system/static/media/11d-11n-thunderstorm.e8847118e96c24763ea3.png",
     "static/media/10n-rain.png": "/weather-forecasting-system/static/media/10n-rain.4ee0e9fc87d08277eb02.png",
     "static/media/10d-rain.png": "/weather-forecasting-system/static/media/10d-rain.61d36ca87be9474d7aac.png",
+    "static/media/humidity.png": "/weather-forecasting-system/static/media/humidity.d6f5bfde0b319938ac8e.png",
     "static/media/04d-04n-broken-clouds.png": "/weather-forecasting-system/static/media/04d-04n-broken-clouds.e9be18ed49d361006db2.png",
     "static/media/13d-13n-snow.png": "/weather-forecasting-system/static/media/13d-13n-snow.82a8dd9d80ae253c72c0.png",
     "index.html": "/weather-forecasting-system/index.html",
-    "main.6c5d918d.css.map": "/weather-forecasting-system/static/css/main.6c5d918d.css.map",
-    "main.b2b62228.js.map": "/weather-forecasting-system/static/js/main.b2b62228.js.map",
+    "main.832d396f.css.map": "/weather-forecasting-system/static/css/main.832d396f.css.map",
+    "main.59e7d2c5.js.map": "/weather-forecasting-system/static/js/main.59e7d2c5.js.map",
     "592.e7bedcf6.chunk.js.map": "/weather-forecasting-system/static/js/592.e7bedcf6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6c5d918d.css",
-    "static/js/main.b2b62228.js"
+    "static/css/main.832d396f.css",
+    "static/js/main.59e7d2c5.js"
   ]
 }
